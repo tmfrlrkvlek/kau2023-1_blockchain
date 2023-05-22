@@ -165,7 +165,7 @@ def consensus():
             #채우시오 :  #가장 긴 노드를 현재 노드의 체인에서 새로운 노드의 체인으로 변경
             new_longest_chain = blockchain['chain']
             #채우시오 :  #마찬가지로 pending_transactions도 변경
-            new_pending_transactions = blockchain['transactions']
+            new_pending_transactions = blockchain['pending_transactions']
 
     if not new_longest_chain or (new_longest_chain and not bitcoin.chain_is_valid(new_longest_chain)): #값이 없거나 값이 있는데 체인 검증 결과가 flase 이면 체인은 교체되지 않음
         return jsonify({
@@ -221,7 +221,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         port = int(sys.argv[1])
     else:
-        port = 5000  # 기본 포트 번호를 설정하십시오.
+        port = 5001  # 기본 포트 번호를 설정하십시오.
     
     if len(sys.argv) > 2:
         current_node_url = sys.argv[2]
